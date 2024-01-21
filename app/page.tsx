@@ -7,6 +7,7 @@ import HeroSlider from "@/components/HeroSlider";
 import useFetchData from "@/hooks";
 import Loader from "@/components/Loader";
 
+//params datatype
 interface ApiParams {
   api_key: string;
   language: string;
@@ -16,6 +17,12 @@ interface ApiParams {
 
 export default function Home() {
   const [hydrationLoad, setHydrationLoad] = useState(true);
+
+  useEffect(() => {
+    setHydrationLoad(false);
+  }, []);
+
+  //Created a custom hook for fetch API's data
   const movieList = useFetchData("movie/popular", {
     api_key: process.env.NEXT_PUBLIC_API_KEY,
     language: "en-US",
@@ -39,15 +46,15 @@ export default function Home() {
     api_key: process.env.NEXT_PUBLIC_API_KEY,
     language: "en-US",
   } as ApiParams);
-  useEffect(() => {
-    setHydrationLoad(false);
-  }, []);
+
   return (
     <>
       {hydrationLoad ? (
+        //create custom loader component
         <Loader />
       ) : (
         <main className="Home-wrapper overflow-hidden">
+          {/* Create component for Banner section slider */}
           <HeroSlider topmovieList={topMovieList} />
           <div className="featured-movie-wrapper container mt-16">
             <div className="flex justify-between items-center mb-10">
@@ -68,6 +75,7 @@ export default function Home() {
                 />
               </div>
             </div>
+            {/* Custom component for Movie carousel */}
             <MovieCarousel
               data={movieList}
               category={"movie"}
@@ -93,6 +101,7 @@ export default function Home() {
                 />
               </div>
             </div>
+            {/* Custom component for Casts carousel */}
             <MovieCarousel data={castsList} category={"casts"} />
           </div>
         </main>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { get } from "../utils/API/apiService";
 
+//params datatype
 interface ApiParams {
   api_key: string;
   language: string;
@@ -8,6 +9,7 @@ interface ApiParams {
   region?: string;
 }
 
+//state datatype
 interface FetchDataResult {
   results: any[];
   genres?: any[];

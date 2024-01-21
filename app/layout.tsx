@@ -19,8 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* Custom header componet */}
       <Header />
       <body className={inter.className}>{children}</body>
+      {/* Custom footer componet */}
       <Footer />
     </html>
   );
