@@ -38,7 +38,7 @@ export default function() {
 	return (
 		<div className="w-11/12 mx-auto max-w-7xl lg:py-20 md:py-16 py-12">
 			<div className="mb-8 flex sm:items-center max-sm:flex-col sm:justify-between">
-				<div className="text-black md:text-3xl text-2xl lg:text-4xl font-bold">
+				<div className="md:text-3xl text-2xl lg:text-4xl font-bold">
 					Featured Movie
 				</div>
 				<Link

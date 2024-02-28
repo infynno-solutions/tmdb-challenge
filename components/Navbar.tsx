@@ -11,18 +11,16 @@ export default function () {
 					</p>
 				</div>
 				<div className="max-sm:hidden">
-					<input
-						type="text"
-						placeholder="What do you want to watch ?"
-						className="bg-transparent w-[100%] border-2 border-white rounded-md py-1 px-2 text-white"
-					/>
-					<img
-						src={"images/search.svg"}
-						width={16}
-						height={16}
-						alt="tv"
-						className="absolute top-2 right-3 cursor-pointer z-10"
-					/>
+					<div className="border-white border-2 rounded-md flex items-center grow">
+						<input
+							type="text"
+							placeholder="What do you want to watch?"
+							className="bg-transparent placeholder:text-white w-[100%] py-1 px-2 text-white"
+						/>
+						<span className="px-2 shrink-0">
+							<img src={"images/search.svg"} width={16} height={16} alt="tv" />
+						</span>
+					</div>
 				</div>
 				<div className="flex items-center gap-4 cursor-pointer">
 					<Link href={"#"} className="text-white font-medium">
