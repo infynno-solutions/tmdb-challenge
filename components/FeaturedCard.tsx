@@ -108,15 +108,15 @@ export default function ({ item, index }: any) {
 
 			<div className="flex select-none items-center gap-3 mb-3">
 				<p className="bg-[#eeb12c] text-xs md:text-sm font-bold py-[2px] px-2 rounded">
-					IMDB
+					IMDb
 				</p>
 				<p className="text-xs md:text-sm">
-					{item.vote_average * 10} / 100
+					{(item.vote_average * 10).toFixed(2)} / 100
 				</p>
 				<div className="ml-4 flex items-center gap-2">
 					<img src={"images/tomato.svg"} alt="tomato" />
 					<p className="text-xs md:text-sm">
-						{item.popularity}%
+						{(item.popularity / 100).toFixed(2)}%
 					</p>
 				</div>
 			</div>

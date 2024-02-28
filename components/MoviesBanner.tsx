@@ -53,7 +53,7 @@ export default function () {
 									</p>
 									<div className="flex items-center gap-3 mb-6">
 										<p className="bg-[#eeb12c] text-black py-1 px-2 rounded">
-											IMDB
+											IMDb
 										</p>
 										<p className="text-white">{item.vote_average * 10} / 100</p>
 										<div className="ml-4 flex items-center gap-2">
@@ -66,12 +66,12 @@ export default function () {
 											<p className="text-white text-xs">{item.popularity}</p>
 										</div>
 									</div>
-									<p className="text-white font-medium text-sm mb-5 line-clamp-6">
+									<p className="text-white font-medium text-base mb-5">
 										{item.overview}
 									</p>
 									<button className="bg-[#BE123C] py-[6px] px-4 rounded-md text-white font-semibold text-base flex gap-2 items-center">
 										<img src={"images/play.svg"} alt="play" />
-										Watch Trailer
+										WATCH TRAILER
 									</button>
 								</div>
 							</div>

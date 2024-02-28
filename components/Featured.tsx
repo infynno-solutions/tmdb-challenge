@@ -12,7 +12,7 @@ export default function() {
 
 	const [list, setList] = useState<any>([]);
 
-	const getFuturedMovies = async () => {
+	useEffect(() => {
 		fetch(
 			"https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
 			{
@@ -29,16 +29,12 @@ export default function() {
 			.catch((error) => {
 				console.log("error", error);
 			});
-	};
-
-	useEffect(() => {
-		getFuturedMovies();
 	}, []);
 
 	return (
 		<div className="w-11/12 mx-auto max-w-7xl lg:py-20 md:py-16 py-12">
 			<div className="mb-8 flex sm:items-center max-sm:flex-col sm:justify-between">
-				<div className="text-black md:text-3xl text-2xl lg:text-4xl font-bold">
+				<div className="md:text-3xl text-2xl lg:text-4xl font-bold">
 					Featured Movie
 				</div>
 				<Link
@@ -82,7 +78,7 @@ export default function() {
 					{list?.map((item: any, index: number) => {
 						return (
 							<SwiperSlide key={index}>
-								<FeaturedCard item={item} index={index} onlyFutureMovie={true} />
+								<FeaturedCard item={item} index={index} />
 							</SwiperSlide>
 						);
 					})}
