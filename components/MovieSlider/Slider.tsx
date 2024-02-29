@@ -43,7 +43,7 @@ function Slider({ results }: SliderProps) {
 
   return (
     <div className="h-full">
-      <div className="absolute flex items-end flex-col right-6 top-1/2 z-10 -translate-y-1/2">
+      <div className="absolute max-sm:hidden flex items-end flex-col right-6 top-1/2 z-10 -translate-y-1/2">
         {results.map((result, index) => (
           <div className={`flex items-center gap-4 font-bold`}>
             {activeImageIndex === index ? (
@@ -72,7 +72,7 @@ function Slider({ results }: SliderProps) {
             transform: `translateY(${-activeImageIndex * 100}%)`,
           }}
         >
-          <div className="absolute z-10 max-w-[500px] left-[10%] top-1/2 -translate-y-1/2">
+          <div className="absolute z-10 max-w-[500px] max-md:right-[10%] left-[10%] top-1/2 -translate-y-1/2">
             <InfoSection
               details={result.overview}
               imdbRating={result.vote_average}

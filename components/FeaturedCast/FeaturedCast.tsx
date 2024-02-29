@@ -24,18 +24,19 @@ async function getData() {
 async function FeaturedCast() {
   const data = await getData();
   return (
-    <section className="galaxy-container vertical-spacing">
+    <section className="galaxy-container !pt-0 vertical-spacing">
       <div className="flex justify-between mb-10">
         <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl">
           Featured Casts
         </h1>
-        <button className="font-normal text-sm lg:text-lg text-[#B91C1C]">
+        <button className="font-normal whitespace-nowrap text-sm lg:text-lg text-[#BE123C]">
           See more {">"}
         </button>
       </div>
       <CustomSwiper>
         {data?.data?.results?.map((result) => (
           <Card
+            showHeart={false}
             src={`https://image.tmdb.org/t/p/w500${result.profile_path}`}
             title={result.original_name}
           />

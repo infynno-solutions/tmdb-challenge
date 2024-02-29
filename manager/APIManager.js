@@ -14,6 +14,10 @@ export default class APIManager {
   sendResponse(data, response) {
     if (!response) {
       // window.location.href = "/maintenance";
+      return {
+        data: undefined,
+        error: false,
+      };
     }
     if (response.status === 401) {
       // TODO: remove token

@@ -14,9 +14,19 @@ type Movie = {
   poster_path: string;
 };
 
+type Genre = {
+  id: number;
+  name: string;
+};
+
 interface FeaturedMoviesData {
   data: {
     results: Movie[];
+  };
+}
+interface GenreData {
+  data: {
+    genres: Genre[];
   };
 }
 
@@ -26,16 +36,23 @@ async function getData() {
   );
   return data as FeaturedMoviesData;
 }
+async function getGenre() {
+  const data = await apiManager.get(
+    "https://api.themoviedb.org/3/genre/movie/list?language=en"
+  );
+  return data as GenreData;
+}
 async function FeaturedMovies() {
   const data = await getData();
-  console.log(data);
+  const genres = await getGenre();
+  console.log("genres ==>", JSON.stringify(genres, null, 2));
   return (
     <section className="galaxy-container vertical-spacing">
       <div className="flex justify-between mb-10">
         <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl">
-          Featured Movies
+          Featured Movie
         </h1>
-        <button className="font-normal text-sm lg:text-lg text-[#B91C1C]">
+        <button className="font-normal whitespace-nowrap text-sm lg:text-lg text-[#BE123C]">
           See more {">"}
         </button>
       </div>
@@ -46,6 +63,11 @@ async function FeaturedMovies() {
             rating={result.vote_average}
             releaseDate={new Date(result.release_date).getFullYear()}
             title={result.original_title}
+            genre={result.genre_ids
+              .map((id: number) =>
+                genres?.data?.genres?.find((obj) => obj.id === id)?.name
+              )
+              .join(", ")}
           />
         ))}
       </CustomSwiper>
