@@ -1,7 +1,14 @@
 "use client";
 import React from "react";
 
-export default function ({ src, releaseDate, title, rating }: any) {
+interface CardProps {
+  src: string;
+  releaseDate?: number;
+  title: string;
+  rating?: number;
+}
+
+export default function ({ src, releaseDate, title, rating }: CardProps) {
   const genreMap = [
     {
       id: 28,
@@ -85,23 +92,31 @@ export default function ({ src, releaseDate, title, rating }: any) {
     <div className="select-none relative">
       <img
         src={src}
-        className="w-full select-none h-[370px] object-cover"
         draggable={false}
+        className="w-full  h-[390px] object-cover"
         alt="movie image"
       />
 
-      <div className="flex select-none items-center justify-between absolute top-[7%] w-full px-4">
-        <img src={"images/Favorite.svg"} alt="heart" width={20} height={20} />
+      <div className="absolute top-[4%] right-[6%]">
+        <img
+          src={"/heart.svg"}
+          alt="heart"
+          className="h-[25px] aspect-square"
+        />
       </div>
-      <p className="select-none md:text-sm text-xs font-semibold text-[#9CA3AF]">
-        USA, {releaseDate}
-      </p>
-      <p className="select-none lg:text-lg text-base font-bold">{title}</p>
+      {releaseDate && (
+        <p className=" md:text-sm text-xs font-semibold mt-2 text-[#9CA3AF]">
+          USA, {releaseDate}
+        </p>
+      )}
+      <p className=" lg:text-lg text-base font-bold mt-1">{title}</p>
 
-      <div className="select-none">
-        <img src="/imdb.png" className="h-[25px]" />
-        <p className="text-xs md:text-sm">{rating * 10} / 100</p>
-      </div>
+      {rating && (
+        <div className="flex gap-3 mt-2 items-center">
+          <img src="/imdb.png" className="h-[20px]" />
+          <p className="text-xs md:text-sm">{(rating * 10).toFixed(2)} / 100</p>
+        </div>
+      )}
       {/* <span className="pb-2 text-xs font-semibold text-[#9CA3AF] line-clamp-1">
         {item.genre_ids
           .map(

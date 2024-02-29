@@ -4,36 +4,30 @@ import Card from "../common/Card";
 
 const apiManager = new APIManager();
 
-type Movie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  original_title: string;
-  vote_average: number;
-  release_date: string;
-  poster_path: string;
+type Cast = {
+  profile_path: string;
+  original_name: string;
 };
 
-interface FeaturedMoviesData {
+interface FeaturedCastData {
   data: {
-    results: Movie[];
+    results: Cast[];
   };
 }
 
 async function getData() {
   const data = await apiManager.get(
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1"
+    "https://api.themoviedb.org/3/person/popular?language=en-US&page=1"
   );
-  return data as FeaturedMoviesData;
+  return data as FeaturedCastData;
 }
-async function FeaturedMovies() {
+async function FeaturedCast() {
   const data = await getData();
-  console.log(data);
   return (
     <section className="galaxy-container vertical-spacing">
       <div className="flex justify-between mb-10">
         <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl">
-          Featured Movies
+          Featured Casts
         </h1>
         <button className="font-normal text-sm lg:text-lg text-[#B91C1C]">
           See more {">"}
@@ -42,14 +36,12 @@ async function FeaturedMovies() {
       <CustomSwiper>
         {data?.data?.results?.map((result) => (
           <Card
-            src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
-            rating={result.vote_average}
-            releaseDate={new Date(result.release_date).getFullYear()}
-            title={result.original_title}
+            src={`https://image.tmdb.org/t/p/w500${result.profile_path}`}
+            title={result.original_name}
           />
         ))}
       </CustomSwiper>
     </section>
   );
 }
-export default FeaturedMovies;
+export default FeaturedCast;

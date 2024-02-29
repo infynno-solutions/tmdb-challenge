@@ -1,8 +1,16 @@
 "use client";
-import { useRef } from "react";
-import { Swiper } from "swiper/react";
+import { Children, ReactNode, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-function CustomSwiper() {
+import "swiper/css";
+import "swiper/css/navigation";
+
+interface CustomSwiperProps {
+  children: ReactNode[];
+}
+
+function CustomSwiper({ children }: CustomSwiperProps) {
+  const arrayChildren = Children.toArray(children);
   const swiperRef = useRef<any>(null);
   return (
     <div className="flex w-full">
@@ -35,6 +43,9 @@ function CustomSwiper() {
         }}
         className="mySwiper grow [&_.swiper-button-next]:text-black [&_.swiper-button-prev]:text-black"
       >
+        {Children.map(arrayChildren, (item) => (
+          <SwiperSlide key={item?.toString()}>{item}</SwiperSlide>
+        ))}
         {/* {list?.map((item: any, index: number) => {
             return (
               <SwiperSlide key={index}>
