@@ -75,7 +75,6 @@ export default class APIManager {
         data = await response.json();
       } catch (error) {
         console.log({ error });
-        // throw error;
       }
       return this.sendResponse(data, response);
     }

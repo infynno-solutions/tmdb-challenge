@@ -45,7 +45,6 @@ async function getGenre() {
 async function FeaturedMovies() {
   const data = await getData();
   const genres = await getGenre();
-  console.log("genres ==>", JSON.stringify(genres, null, 2));
   return (
     <section className="galaxy-container vertical-spacing">
       <div className="flex justify-between mb-10">

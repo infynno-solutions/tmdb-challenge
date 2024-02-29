@@ -10,7 +10,6 @@ interface SliderProps {
 }
 
 function Slider({ results }: SliderProps) {
-  console.log({ results });
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const intervalRef: any = useRef(null);
 
@@ -44,12 +43,10 @@ function Slider({ results }: SliderProps) {
   return (
     <div className="h-full">
       <div className="absolute max-sm:hidden flex items-end flex-col right-6 top-1/2 z-10 -translate-y-1/2">
-        {results.map((result, index) => (
+        {results.map((_, index) => (
           <div className={`flex items-center gap-4 font-bold`}>
-            {activeImageIndex === index ? (
+            {activeImageIndex === index && (
               <hr className="h-1 w-8 rounded-md bg-white" />
-            ) : (
-              ""
             )}
             <div
               onClick={() => handleNavigationClick(index)}
@@ -82,9 +79,6 @@ function Slider({ results }: SliderProps) {
           <img
             key={result.poster_path}
             className="brightness-75 transition-transform duration-300 w-full h-full object-cover"
-            // style={{
-            //   transform: `translateY(${-activeImageIndex * 100}%)`,
-            // }}
             src={baseImageUrl + result.backdrop_path}
           />
         </div>

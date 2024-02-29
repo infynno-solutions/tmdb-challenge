@@ -43,16 +43,9 @@ function CustomSwiper({ children }: CustomSwiperProps) {
         }}
         className="mySwiper grow [&_.swiper-button-next]:text-black [&_.swiper-button-prev]:text-black"
       >
-        {Children.map(arrayChildren, (item) => (
-          <SwiperSlide key={item?.toString()}>{item}</SwiperSlide>
+        {arrayChildren.map((child) => (
+          <SwiperSlide>{child}</SwiperSlide>
         ))}
-        {/* {list?.map((item: any, index: number) => {
-            return (
-              <SwiperSlide key={index}>
-                <FeaturedCard item={item} index={index} />
-              </SwiperSlide>
-            );
-          })} */}
       </Swiper>
       <button
         className="shrink-0"
