@@ -1,7 +1,13 @@
 import { APIManager } from "@/utils/api";
-import { CastPropsData } from "../Card";
 import ResponsiveSwiper from "../Swiper/ResponsiveSwiper";
 import styles from "../Swiper/Swiper.module.css";
+
+type CastPropsData = {
+	id: number;
+	name: string;
+	original_name: string;
+	profile_path: "/lldeQ91GwIVff43JBrpdbAAeYWj.jpg";
+};
 
 async function getData() {
 	const FEATURED_MOVIES_API = "/3/person/popular?language=en-US&page=1";
@@ -27,7 +33,7 @@ export default async function () {
 		title: item.name,
 	}))
 	return (
-		<section className="full-w-container lg:my-16 md:my-12 my-10">
+		<section className="full-w-container lg:my-16 md:my-12 !my-10">
 			<div className=" flex justify-between items-center mb-8 w-11/12 mx-auto">
 			<h3
 				className={`${styles.swiper_heading}`}

@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 export default function () {
 	return (
 		<nav className="w-full absolute z-[1] top-0 text-white flex justify-between gap-12 xl:gap-40 items-center px-5 py-4">
-			<div className="flex items-center gap-3">
+			<div className="flex items-center gap-3 cursor-pointer">
 				<Image src="/tv.png" height={50} width={50} alt="Moviebox tv" />
 				<h5 className={styles.navbar_title}>MovieBox</h5>
 			</div>
@@ -18,8 +18,8 @@ export default function () {
 					<Image src="/Search.png" alt="Search" width={16} height={16} />
 				</span>
 			</div>
-			<div className="flex items-center gap-3">
-				<h5 className={styles.navbar_title}>Sign In</h5>
+			<div className="flex items-center gap-3 cursor-pointer">
+				<h5 className={`${styles.navbar_title} text-nowrap whitespace-nowrap`}>Sign In</h5>
 				<Image src="/Menu.png" height={36} width={36} alt="menu icon" />
 			</div>
 		</nav>

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRef } from "react";
 
 export default function (props: {
+	showFavourite?: boolean;
 	cardData: {
 		image: string;
 		release_year?: string;
@@ -34,7 +35,7 @@ export default function (props: {
 			>
 				{props.cardData.map((data, i) => (
 					<SwiperSlide key={i}>
-						<Card {...data} />
+						<Card {...data} index={i} showFavourite={props.showFavourite} />
 					</SwiperSlide>
 				))}
 			</Swiper>

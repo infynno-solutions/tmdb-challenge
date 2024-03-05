@@ -1,8 +1,18 @@
 import { APIManager } from "@/utils/api";
-import { MoviePropsData } from "../Card";
 import ResponsiveSwiper from "../Swiper/ResponsiveSwiper";
 import genreListBackUp from "./genreList.json";
 import styles from "../Swiper/Swiper.module.css";
+
+type MoviePropsData = {
+	genre_ids: number[];
+	id: number;
+	original_title: string;
+	popularity: number;
+	poster_path: string;
+	release_date: string;
+	vote_average: number;
+	vote_count: number;
+};
 
 async function getData() {
 	const FEATURED_MOVIES_API = "/3/movie/now_playing?language=en-US&page=1";
@@ -51,7 +61,7 @@ export default async function () {
 		genre: calculateGenre(item.genre_ids, genreList),
 	}))
 	return (
-		<section className="full-w-container lg:mt-16 md:mt-12 mt-10">
+		<section className="full-w-container lg:mt-16 md:mt-12 !mt-10">
 			<div className=" flex justify-between items-center mb-8 w-11/12 mx-auto">
 			<h3
 				className={`${styles.swiper_heading}`}
@@ -60,7 +70,7 @@ export default async function () {
 			</h3>
 			</div>
 			<div className="flex items-center">
-				<ResponsiveSwiper cardData={cardData}  />
+				<ResponsiveSwiper cardData={cardData} showFavourite />
 			</div>
 		</section>
 	)

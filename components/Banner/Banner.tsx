@@ -25,7 +25,7 @@ async function getData() {
 		"/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200"
 	);
 
-	return result?.results?.slice(0, 5) ?? undefined;
+	return result?.results && result.results.length > 5 && result.results.slice(0, 5) || result?.results;
 }
 
 export default async function () {

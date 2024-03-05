@@ -49,7 +49,7 @@ export class APIManager {
 			return await response.json();
 		} catch (error) {
 			console.error("Error during API request:", error);
-			throw error; // Re-throw the error for handling at the higher level if needed
+			// throw error; // Re-throw the error for handling at the higher level if needed
 		}
 	}
 	
