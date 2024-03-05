@@ -8,9 +8,9 @@ import { useRef } from "react";
 
 export default function (props: {
 	cardData: {
-		image?: string;
+		image: string;
 		release_year?: string;
-		title?: string;
+		title: string;
 		rating?: number;
 		genre?: string;
 	}[];
@@ -32,8 +32,8 @@ export default function (props: {
 				// slidesPerView={4}
 				spaceBetween={30}
 			>
-				{props.cardData.map((data) => (
-					<SwiperSlide>
+				{props.cardData.map((data, i) => (
+					<SwiperSlide key={i}>
 						<Card {...data} />
 					</SwiperSlide>
 				))}

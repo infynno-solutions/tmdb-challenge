@@ -12,12 +12,6 @@ export type MoviePropsData = {
 	vote_count: number;
 };
 
-export type MovieProps = {
-	category: "movie";
-	data: MoviePropsData;
-	genre: string;
-};
-
 export type CastPropsData = {
 	id: number;
 	name: string;
@@ -25,15 +19,10 @@ export type CastPropsData = {
 	profile_path: "/lldeQ91GwIVff43JBrpdbAAeYWj.jpg";
 };
 
-export type CastProps = {
-	category: "cast";
-	data: CastPropsData;
-};
-
 export type FinalProps = {
-	image?: string;
+	image: string;
 	release_year?: string;
-	title?: string;
+	title: string;
 	rating?: number;
 	genre?: string;
 };

@@ -5,9 +5,9 @@ export default function () {
 		<footer className="flex flex-col gap-12 items-center mt-20 mb-5">
 			<div className="flex justify-center gap-10">
 				<Image src="/fa-brands_facebook-square.png" alt="facebook" width={24} height={24} />
-				<Image src="/fa-brands_instagram.png" alt="facebook" width={24} height={24} />
-				<Image src="/fa-brands_twitter.png" alt="facebook" width={24} height={24} />
-				<Image src="/fa-brands_youtube.png" alt="facebook" width={24} height={24} />
+				<Image src="/fa-brands_instagram.png" alt="instagram" width={24} height={24} />
+				<Image src="/fa-brands_twitter.png" alt="twitter" width={24} height={24} />
+				<Image src="/fa-brands_youtube.png" alt="youtube" width={24} height={24} />
 			</div>
 			<div className="text-gray-900 justify-center lg:text-[18px] text-[16px] font-bold flex gap-12">
 				<span>Conditions of Use</span>
