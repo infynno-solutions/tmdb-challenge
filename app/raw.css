@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.heroSwiper .swiper-pagination-bullet {
+		@apply !my-3 h-fit w-8 bg-transparent text-center text-xs text-gray-400 opacity-100;
+	}
+
+	.heroSwiper .swiper-pagination-bullet-active {
+		@apply text-base text-white transition-colors duration-500;
+	}
+}
