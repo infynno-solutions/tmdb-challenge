@@ -1,13 +1,13 @@
 import Header from '@/components/Structure/Header'
 import HeroSwiper from '@/components/Home/Swipers/HeroSwiper'
-import { fetchFeaturedMovies } from '@/lib/api'
+import { fetchTopRatedMovies } from '@/lib/api'
 
 interface Movie {
 	results: any[]
 }
 
 export default async function Hero() {
-	const movies = await fetchFeaturedMovies()
+	const movies = await fetchTopRatedMovies()
 	const moviesData: Movie = movies as Movie
 	return (
 		<div className="relative bg-white">
