@@ -48,12 +48,10 @@ const MoviesSwiper: React.FC<Props> = ({ movies, genres }) => {
 				className="select-none">
 				{movies.results.map((movie, _i) => {
 					return (
-						<SwiperSlide
-							key={_i}
-							className="flex justify-center space-y-3">
+						<SwiperSlide key={_i} className="flex justify-center space-y-3">
 							<div className="relative">
 								<Image
-									src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+									src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
 									alt={movie.title}
 									width={235}
 									height={235}
@@ -68,9 +66,7 @@ const MoviesSwiper: React.FC<Props> = ({ movies, genres }) => {
 								<p className="text-xs font-bold text-gray-400">
 									{new Date(movie.release_date).getFullYear()}
 								</p>
-								<p className="text-lg font-bold">
-									{movie.title}
-								</p>
+								<p className="text-lg font-bold">{movie.title}</p>
 								<div className="flex justify-between">
 									<div className="inline-flex items-center space-x-2.5">
 										<Image
@@ -83,9 +79,7 @@ const MoviesSwiper: React.FC<Props> = ({ movies, genres }) => {
 										<p className="text-xs text-gray-900">
 											{movie.vote_average === 0
 												? 'N/A'
-												: (
-														movie.vote_average * 10
-													).toFixed(2)}{' '}
+												: (movie.vote_average * 10).toFixed(2)}{' '}
 											/ 100
 										</p>
 									</div>
@@ -97,17 +91,13 @@ const MoviesSwiper: React.FC<Props> = ({ movies, genres }) => {
 											height={17}
 											loading="lazy"
 										/>
-										<p className="text-xs text-gray-900">
-											97%
-										</p>
+										<p className="text-xs text-gray-900">97%</p>
 									</div>
 								</div>
 								<p className="text-xs font-bold text-gray-400">
 									{genres.genres
-										.filter(genre =>
-											movie.genre_ids.includes(genre.id)
-										)
-										.map(genre => genre.name)
+										.filter((genre) => movie.genre_ids.includes(genre.id))
+										.map((genre) => genre.name)
 										.join(', ')}
 								</p>
 							</div>

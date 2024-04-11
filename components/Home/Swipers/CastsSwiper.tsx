@@ -39,11 +39,9 @@ const CastsSwiper: React.FC<Props> = ({ data }) => {
 				{data.results.map((cast, _i) => {
 					if (cast.profile_path !== null) {
 						return (
-							<SwiperSlide
-								key={_i}
-								className="flex justify-center space-y-3">
+							<SwiperSlide key={_i} className="flex justify-center space-y-3">
 								<Image
-									src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+									src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
 									alt={cast.name}
 									width={235}
 									height={235}

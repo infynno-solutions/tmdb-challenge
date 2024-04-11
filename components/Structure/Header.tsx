@@ -8,15 +8,8 @@ export default function Header() {
 			<div className="mx-auto max-w-screen-xl px-5 py-4">
 				<div className="grid grid-cols-2 md:grid-cols-12">
 					<div className="md:col-span-3 md:flex md:items-center md:gap-12">
-						<a
-							className="flex items-center gap-5 text-black md:gap-7"
-							href="#">
-							<Image
-								src="/logo.svg"
-								alt="Logo"
-								width={40}
-								height={40}
-							/>
+						<a className="flex items-center gap-5 text-black md:gap-7" href="#">
+							<Image src="/logo.svg" alt="Logo" priority width={40} height={40} />
 							<span className="text-base font-bold text-white md:text-2xl">
 								MovieBox
 							</span>
@@ -36,9 +29,7 @@ export default function Header() {
 					</div>
 					<div className="flex items-center justify-end gap-4 md:col-span-3">
 						<div className="sm:flex sm:items-center sm:gap-4">
-							<a
-								className="text-base font-bold text-white"
-								href="#">
+							<a className="text-base font-bold text-white" href="#">
 								Sign in
 							</a>
 
