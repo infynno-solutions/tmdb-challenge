@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper {
+  /* max-width: 1300px; */
+}
+
+.swiper-slide {
+  /* max-width: 400px; */
+}
