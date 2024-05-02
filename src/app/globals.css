@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.slick-slider {
+    height: 100%;
+}
+
+.slick-slide {
+    border: none !important;
+}
+
+.heroBanner .slick-dots {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    bottom: auto;
+    width: 36px;
+}
+
+.heroBanner .slick-dots li {
+    display: block;
+    margin: 10px 5px;
+}
+
+.heroBanner .slick-dots li button {
+    font-size: 12px;
+    line-height: 14px;
+    color: #9ca3af;
+}
+
+.heroBanner .slick-dots li.slick-active button {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.heroBanner .slick-dots li button:before {
+    display: none;
+}
+
+.heroBanner .slick-dots li.slick-active button:before {
+    display: block;
+    width: 20px;
+    height: 3px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: transparent;
+    opacity: 1;
+    left: -25px;
+    top: 10px;
+}
+
+.slick-track {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .heroBanner .slick-dots {
+        top: auto;
+        bottom: 20px;
+    }
+}
