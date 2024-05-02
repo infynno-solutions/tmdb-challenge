@@ -26,7 +26,7 @@ const FeaturedCast = () => {
 
   return (
     <div className="my-8 mt-14">
-      <div className="flex justify-between items-center mx-20">
+      <div className="flex justify-between items-center mx-14">
         <h3 className="text-[36px] font-bold">Featured Casts</h3>
         <button className="flex text-[18px] text-[#BE123C]">
           See more

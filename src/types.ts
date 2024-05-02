@@ -8,6 +8,14 @@ type IMovieCard = {
   votePercent: string;
 };
 
+type ITopRatedMovie = {
+  id: number;
+  title: string;
+  overview: string;
+  imageUrl: string;
+  votePercent: string;
+};
+
 type IPersonCard = {
   id: number;
   imageUrl: string;
